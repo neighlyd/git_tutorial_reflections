@@ -1,0 +1,14 @@
+git log
+  # gives a log of all commits for a particular repository. Useful for obtaining commit_id for each version.
+
+git log --stat
+  # gives a comparative log showing the stats of changes made in commits for a particular repository, such as how many additions or deletions there were.
+
+git diff <old_version_commit_id> <new_version_commit_id>
+  # shows line-item differences between commits for a particular repository
+
+git checkout <old_version_commit_id>
+  # access code from earlier commits
+
+git init
+  # creates a new git repository
