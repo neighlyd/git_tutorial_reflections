@@ -12,3 +12,13 @@ git checkout <old_version_commit_id>
 
 git init
   # creates a new git repository
+
+git status
+  # gives information about git status of current directory, including where you are in the branch and when your last commit was.
+  # untracked = uncommitted files
+
+git add
+  # adds a file to the staging area where files are bundled before commit
+
+git commit
+  # commits changes in staging area [via git add] to the git repository. Upon execution, it launches an editor to insert comments [using your preferred editor]. The best practices for git commit comments are located at - http://udacity.github.io/git-styleguide/
