@@ -4,11 +4,17 @@ git log
 git log --stat
   # gives a comparative log showing the stats of changes made in commits for a particular repository, such as how many additions or deletions there were.
 
+git log --graph --oneline <branch_1> <branch_2>
+  # Gives visualization of branch structure.
+
 git diff <old_version_commit_id> <new_version_commit_id>
   # shows line-item differences between commits for a particular repository
+  # without arguments compares <working_directory> and <staging_area>
+  # git diff --staged compares the <staging_area> with the <most_recent_commit_id>
 
 git checkout <old_version_commit_id>
   # access code from earlier commits
+  # git checkout -b <branch_name> is equivalent to git branch <branch_name> followed by git checkout <branch_name>
 
 git init
   # creates a new git repository
@@ -18,7 +24,38 @@ git status
   # untracked = uncommitted files
 
 git add
-  # adds a file to the staging area where files are bundled before commit
+  # adds a file to the staging area where files are bundled before commit.
+  # The staging area is a copy of the most recent commit until you manually add new versions of files to it.
 
 git commit
   # commits changes in staging area [via git add] to the git repository. Upon execution, it launches an editor to insert comments [using your preferred editor]. The best practices for git commit comments are located at - http://udacity.github.io/git-styleguide/
+
+git reset --hard
+  # removes ANY CHANGES to files in both <working_area> and <staging_area>
+  # BE VERY CAREFUL, THIS IS AN IRREVERSABLE ACTION
+  # Good idea to run git diff and git diff --staged before running.
+
+########## BRANCHES #############
+
+# Git allows you to create labels for commits
+  # Master is the best-practice label for the main branch of a project.
+  # DETACHED HEAD - means that you are looking at a branch that has no label.
+
+git branch
+  # No argument = shows branches
+  # argument = label for new branch.
+  # Asterix = current checked-out branch.
+  # use git checkout <label> to switch between branches.
+
+git branch -d <label>
+  # deletes the <label> for a branch, not the commits itself. If branches have been merged, their commits will be interwoven. If not merged, these commits will be lost (unless you know the commit_id of the branch). Will be permanently lost when garbage collection runs.
+
+git gc
+  # runs garbage collection manually. This removes unreachable branches.
+
+git merge <branch_1> <branch_2>
+  # merges branches.
+  # checkout desired main branch (<branch_1>)
+
+git show <commit_id>
+  # shows diff between <commit_id> and its parent. Useful in branched structure.
