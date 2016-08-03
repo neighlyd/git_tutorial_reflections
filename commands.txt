@@ -65,9 +65,12 @@ git show <commit_id>
 git remote
   # No Arguments: gives a list of current remote repositories.
 
-git remote add <local_label> <github_url>
+git remote add <local_repository_label> <github_url>
   # Adds the remote repository to your repository store.
   # Best Practice: if you only have one repository, name it "origin"
 
 git remote -v
   # gives a verbose list of remote github repositories, including URLs.
+
+git pull <local_repository_label> <repository_branch_title>
+  # Pulls all commit updates for remote <repository_branch_title> branch and appends them to <local_repository_label> and moves the <repository_branch_title> to be the label for the most recent commit.
